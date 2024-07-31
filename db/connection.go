@@ -9,9 +9,11 @@ import (
 )
 
 var DB *gorm.DB
-var DSN = "sqlserver://sa:Eco123456(192.168.27.12:1433)/trazabilidad?charset=utf8mb4&parseTime=True&loc=Local"
 
-func DBConnection(){
+// var DSN = "sqlserver://sa:Eco123456(192.168.27.12:1433)/trazabilidad?charset=utf8mb4&parseTime=True&loc=Local"
+var DSN = "sqlserver://sa:Eco123456@192.168.27.12:1433?database=trazabilidad"
+
+func DBConnection() {
 	var error error
 	DB, error = gorm.Open(sqlserver.Open(DSN), &gorm.Config{})
 	if error != nil {
